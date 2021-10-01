@@ -10,7 +10,7 @@ variables:
  
 trigger:
 - master
-
+ 
 pool:
   vmImage: 'Ubuntu-16.04'
 
