@@ -7,7 +7,7 @@ variables:
   ml-exp: 'diabetes-cicd' # Experiment name\
   ml-model-name: 'diabetes-model' # Model name
   ml-aks-name: 'diabetesaks' # AKS cluster name
-
+ 
 trigger:
 - master
 
