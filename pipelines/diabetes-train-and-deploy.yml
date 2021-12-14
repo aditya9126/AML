@@ -4,8 +4,8 @@ variables:
   ml-rg: 'Workshop' # AML resource Group name
   ml-ct: 'mlopscompute' # AML Compute cluster name
   ml-path: '../models/diabetes' # Model directory path in repo\
-  ml-exp: 'diabetes-cicd' # Experiment name\
-  ml-model-name: 'diabetes-model' # Model name
+  ml-exp: 'mslearn-diabetes-pipeline' # Experiment name\
+  ml-model-name: 'diabetes_model' # Model name
   ml-aks-name: 'diabetesaks' # AKS cluster name 
  
 trigger:
@@ -41,25 +41,25 @@ steps:
     scriptType: 'bash'
     inlineScript: 'az ml computetarget create amlcompute -n $(ml-ct) --vm-size STANDARD_D2_V2 --max-nodes 1'
   
-- task: AzureCLI@2
-  displayName: 'Train model'
-  inputs:
-    azureSubscription: $(ml-ws-connection)
-    workingDirectory: $(ml-path)
-    scriptLocation: inlineScript
-    scriptType: 'bash'
-    inlineScript: 'az ml run submit-script -c config/train --ct $(ml-ct) -e $(ml-exp) -t run.json train.py'
+# - task: AzureCLI@2
+#   displayName: 'Train model'
+#   inputs:
+#     azureSubscription: $(ml-ws-connection)
+#     workingDirectory: $(ml-path)
+#     scriptLocation: inlineScript
+#     scriptType: 'bash'
+#     inlineScript: 'az ml run submit-script -c config/train --ct $(ml-ct) -e $(ml-exp) -t run.json train.py'
 
 # Add potential approval step before "fort" regis tration of model
 
-- task: AzureCLI@2
-  displayName: 'Register model'
-  inputs:
-    azureSubscription: $(ml-ws-connection)
-    workingDirectory: $(ml-path)
-    scriptLocation: inlineScript
-    scriptType: 'bash'
-    inlineScript: 'az ml model register -n $(ml-model-name) -f run.json --asset-path outputs/ridge_0.95.pkl -t model.json'
+# - task: AzureCLI@2
+#   displayName: 'Register model'
+#   inputs:
+#     azureSubscription: $(ml-ws-connection)
+#     workingDirectory: $(ml-path)
+#     scriptLocation: inlineScript
+#     scriptType: 'bash'
+#     inlineScript: 'az ml model register -n $(ml-model-name) -f run.json --asset-path outputs/ridge_0.95.pkl -t model.json'
 
 - task: AzureCLI@2
   displayName: 'Deploy model to ACI for QA'
