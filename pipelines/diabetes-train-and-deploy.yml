@@ -50,7 +50,7 @@ steps:
     scriptType: 'bash'
     inlineScript: 'az ml run submit-script -c config/train --ct $(ml-ct) -e $(ml-exp) -t run.json train.py'
 
-Add potential approval step before "fort" regis tration of model
+# Add potential approval step before "fort" regis tration of model
 
 - task: AzureCLI@2
   displayName: 'Register model'
