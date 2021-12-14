@@ -1,7 +1,7 @@
 variables:
-  ml-ws-connection: 'MLServConn' # Workspace Service Connection name
-  ml-ws: 'MLWorkspace' # AML Workspace name
-  ml-rg: 'ML-RG' # AML resource Group name
+  ml-ws-connection: 'MLServiceConnection' # Workspace Service Connection name
+  ml-ws: 'AML-Workshop' # AML Workspace name
+  ml-rg: 'Workshop' # AML resource Group name
   ml-ct: 'mlopscompute' # AML Compute cluster name
   ml-path: '../models/diabetes' # Model directory path in repo\
   ml-exp: 'diabetes-cicd' # Experiment name\
