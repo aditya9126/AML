@@ -5,7 +5,7 @@ variables:
   ml-ct: 'mlopscompute' # AML Compute cluster name
   ml-path: '../models/diabetes' # Model directory path in repo\
   ml-exp: 'diabetes-cicd' # Experiment name\
-  ml-model-name: 'MaxAbsScaler, LightGBM' # Model name
+  ml-model-name: 'willing_evening_lwnkmmsx' # Model name
   ml-aks-name: 'diabetesaks' # AKS cluster name 
  
 trigger:
